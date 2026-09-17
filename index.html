@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#007f86" />
+  <meta name="description" content="A colourful, relaxed 7-day Bali itinerary for two, with temples, surf and plenty of time to slow down." />
+  <title>Bali, Slowly — 7-day escape</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
+
+    :root {
+      --ink: #183b43;
+      --muted: #5f7778;
+      --teal: #007f86;
+      --deep-teal: #005b68;
+      --aqua: #d9f3ed;
+      --coral: #ef705f;
+      --yellow: #f5c85c;
+      --sand: #fff7e8;
+      --paper: #fffdf8;
+      --line: #dfebe5;
+      --shadow: 0 18px 45px rgba(19, 72, 76, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "DM Sans", system-ui, sans-serif;
+      line-height: 1.55;
+    }
+    a { color: inherit; text-decoration: none; }
+    .shell { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 620px;
+      color: white;
+      background:
+        linear-gradient(112deg, rgba(0, 87, 104, .98) 0%, rgba(0, 127, 134, .91) 44%, rgba(0, 127, 134, .58) 100%),
+        radial-gradient(circle at 78% 32%, #f3c96c 0 7%, transparent 7.5%),
+        linear-gradient(155deg, #006b78 15%, #35a895 85%);
+    }
+    .hero:before, .hero:after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      opacity: .24;
+      border-radius: 50% 5% 50% 5%;
+      background: #d8f1df;
+      transform: rotate(33deg);
+    }
+    .hero:before { width: 410px; height: 680px; right: -140px; top: -220px; }
+    .hero:after { width: 250px; height: 440px; right: 95px; bottom: -310px; transform: rotate(-40deg); }
+    .nav {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 0;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .02em; }
+    .brand-mark { font-size: 25px; }
+    .nav-links { display: flex; gap: 25px; font-size: 13px; font-weight: 600; }
+    .nav-links a { opacity: .85; transition: opacity .2s, color .2s; }
+    .nav-links a:hover { opacity: 1; color: var(--yellow); }
+    .hero-content { position: relative; z-index: 1; padding: 72px 0 112px; max-width: 710px; }
+    .eyebrow, .section-kicker {
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .19em;
+    }
+    .eyebrow { color: #f8d57c; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 700px;
+      margin: 17px 0 20px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(50px, 8vw, 90px);
+      line-height: .98;
+      letter-spacing: -.045em;
+    }
+    .hero-copy { max-width: 490px; font-size: 17px; color: #e5f4ed; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 15px;
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 99px;
+      background: rgba(255,255,255,.12);
+      font-size: 13px;
+      font-weight: 600;
+      backdrop-filter: blur(5px);
+    }
+    .route { background: var(--sand); padding: 22px 0; }
+    .route-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .route-label { font-size: 12px; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
+    .route-line { flex: 1; display: flex; align-items: center; justify-content: center; gap: 0; color: var(--teal); font-size: 13px; font-weight: 700; }
+    .route-stop { display: flex; align-items: center; gap: 7px; white-space: nowrap; }
+    .route-dot { width: 8px; height: 8px; display: block; border-radius: 50%; background: var(--coral); }
+    .route-connector { width: 56px; height: 1px; margin: 0 12px; background: #c9d9ce; }
+    .section { padding: 88px 0; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 30px; margin-bottom: 35px; }
+    .section-kicker { color: var(--coral); margin-bottom: 10px; }
+    h2 { margin-bottom: 0; font-family: "Playfair Display", Georgia, serif; font-size: clamp(34px, 5vw, 54px); line-height: 1.05; letter-spacing: -.035em; }
+    .section-intro { max-width: 380px; margin-bottom: 3px; color: var(--muted); font-size: 14px; }
+    .days { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .day-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 280px;
+      padding: 27px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: #fff;
+      box-shadow: 0 6px 16px rgba(21, 78, 78, .04);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .day-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .day-card.featured { color: white; border: 0; background: var(--deep-teal); }
+    .day-card.featured:after { content: "✦"; position: absolute; right: 27px; top: 18px; color: var(--yellow); font-size: 37px; }
+    .day-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+    .day-number { color: var(--coral); font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+    .featured .day-number { color: var(--yellow); }
+    .day-icon { display: grid; width: 41px; height: 41px; place-items: center; border-radius: 50%; background: var(--aqua); font-size: 20px; }
+    .featured .day-icon { background: rgba(255,255,255,.13); }
+    .day-card h3 { max-width: 300px; margin-bottom: 10px; font-family: "Playfair Display", Georgia, serif; font-size: 28px; line-height: 1.08; }
+    .day-card p { max-width: 440px; margin-bottom: 22px; color: var(--muted); font-size: 14px; }
+    .featured p { color: #d9ece7; }
+    .day-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); }
+    .featured .day-footer { border-color: rgba(255,255,255,.17); }
+    .stay { color: var(--muted); font-size: 12px; }
+    .featured .stay { color: #b8d5d0; }
+    .cost { color: var(--teal); font-size: 13px; font-weight: 700; }
+    .featured .cost { color: var(--yellow); }
+    .budget-section { background: var(--aqua); }
+    .budget-layout { display: grid; grid-template-columns: .82fr 1.18fr; gap: 60px; align-items: start; }
+    .budget-callout { display: inline-flex; flex-direction: column; padding: 27px 31px; margin-top: 28px; border-radius: 20px; background: white; box-shadow: 0 8px 25px rgba(19, 92, 82, .08); }
+    .budget-callout span { color: var(--muted); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+    .budget-callout strong { color: var(--deep-teal); font-family: "Playfair Display", Georgia, serif; font-size: 38px; line-height: 1.15; }
+    .budget-note { margin: 17px 0 0; color: var(--muted); font-size: 13px; }
+    .budget-table-wrap { overflow: hidden; border: 1px solid rgba(0, 100, 100, .1); border-radius: 18px; background: rgba(255,255,255,.78); }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { padding: 17px 20px; text-align: left; border-bottom: 1px solid #dbece3; }
+    th { color: var(--muted); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
+    td:last-child, th:last-child { text-align: right; font-weight: 700; }
+    tr:last-child td { border-bottom: 0; }
+    tfoot td { color: var(--deep-teal); background: #effaf2; font-weight: 700; }
+    .tips-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 38px; }
+    .tip { padding: 24px 21px; border-radius: 17px; background: var(--sand); }
+    .tip-icon { display: block; margin-bottom: 14px; font-size: 25px; }
+    .tip h3 { margin-bottom: 7px; font-size: 16px; }
+    .tip p { margin-bottom: 0; color: var(--muted); font-size: 13px; }
+    footer { padding: 35px 0 45px; background: var(--deep-teal); color: #c8e3da; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; font-size: 12px; }
+    .footer-inner strong { color: white; }
+
+    @media (max-width: 780px) {
+      .shell { width: min(100% - 30px, 600px); }
+      .nav-links { display: none; }
+      .hero { min-height: 590px; }
+      .hero-content { padding: 60px 0 80px; }
+      .route-inner { align-items: flex-start; flex-direction: column; }
+      .route-line { width: 100%; justify-content: flex-start; }
+      .route-connector { width: 24px; margin: 0 8px; }
+      .section { padding: 65px 0; }
+      .section-head, .budget-layout { display: block; }
+      .section-intro { margin-top: 17px; }
+      .days { grid-template-columns: 1fr; }
+      .budget-layout > div + div { margin-top: 35px; }
+      .tips-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 450px) {
+      h1 { font-size: 55px; }
+      .route-line { flex-wrap: wrap; row-gap: 10px; }
+      .route-stop { font-size: 12px; }
+      .route-connector { width: 17px; margin: 0 6px; }
+      .tips-grid { grid-template-columns: 1fr; }
+      th, td { padding: 14px 12px; }
+      .footer-inner { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero" id="top">
+    <div class="shell">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">🌴</span> Bali, Slowly</a>
+        <div class="nav-links">
+          <a href="#itinerary">Itinerary</a>
+          <a href="#budget">Budget</a>
+          <a href="#tips">Travel tips</a>
+        </div>
+      </nav>
+      <div class="hero-content">
+        <div class="eyebrow">A 7-day escape for two</div>
+        <h1>Find your<br><em>island rhythm.</em></h1>
+        <p class="hero-copy">A soft-paced week of warm water, sacred places, good food and slow mornings — from the coast to the rice fields.</p>
+        <div class="hero-meta">
+          <span class="pill">📍 Bali, Indonesia</span>
+          <span class="pill">💰 $500 / day for two</span>
+          <span class="pill">🏄 Surf · temples · rest</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="route" aria-label="Trip route">
+    <div class="shell route-inner">
+      <span class="route-label">The route</span>
+      <div class="route-line">
+        <span class="route-stop"><i class="route-dot"></i> Seminyak</span>
+        <i class="route-connector"></i>
+        <span class="route-stop"><i class="route-dot"></i> Uluwatu</span>
+        <i class="route-connector"></i>
+        <span class="route-stop"><i class="route-dot"></i> Ubud</span>
+        <i class="route-connector"></i>
+        <span class="route-stop"><i class="route-dot"></i> East Bali</span>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section class="section shell" id="itinerary">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">One beautiful week</div>
+          <h2>Your days in Bali</h2>
+        </div>
+        <p class="section-intro">Enough structure to see the good stuff, enough breathing room to follow the sunshine.</p>
+      </div>
+      <div class="days">
+        <article class="day-card">
+          <div class="day-top"><span class="day-number">Day 01 · Seminyak</span><span class="day-icon" aria-hidden="true">🌅</span></div>
+          <h3>Arrive & exhale</h3>
+          <p>Settle into your boutique stay, float in the pool, then wander Seminyak Beach as the sky turns gold. Dinner by the water.</p>
+          <div class="day-footer"><span class="stay">Stay · Seminyak</span><span class="cost">$250–350</span></div>
+        </article>
+        <article class="day-card featured">
+          <div class="day-top"><span class="day-number">Day 02 · Uluwatu</span><span class="day-icon" aria-hidden="true">🛕</span></div>
+          <h3>Clifftop temples & firelight</h3>
+          <p>Take a private car south for Uluwatu Temple, catch the Kecak fire dance, then share a seafood dinner on Jimbaran Bay.</p>
+          <div class="day-footer"><span class="stay">Stay · South Bali</span><span class="cost">$300–400</span></div>
+        </article>
+        <article class="day-card">
+          <div class="day-top"><span class="day-number">Day 03 · Beach day</span><span class="day-icon" aria-hidden="true">🏄</span></div>
+          <h3>Catch your first wave</h3>
+          <p>Learn to surf in gentle Kuta or Seminyak water with a local instructor. Keep the afternoon gloriously unscheduled.</p>
+          <div class="day-footer"><span class="stay">Stay · Seminyak</span><span class="cost">$250–375</span></div>
+        </article>
+        <article class="day-card">
+          <div class="day-top"><span class="day-number">Day 04 · Ubud</span><span class="day-icon" aria-hidden="true">🌾</span></div>
+          <h3>Rice fields & holy water</h3>
+          <p>Transfer north to Ubud, pausing at Tirta Empul and Tegallalang. Check into a jungle hideaway and book a couples’ massage.</p>
+          <div class="day-footer"><span class="stay">Stay · Ubud</span><span class="cost">$300–425</span></div>
+        </article>
+        <article class="day-card">
+          <div class="day-top"><span class="day-number">Day 05 · Ubud</span><span class="day-icon" aria-hidden="true">🌿</span></div>
+          <h3>A slow green morning</h3>
+          <p>Walk the Campuhan Ridge, browse the art market, visit Saraswati Temple, then let lunch, a spa or the pool fill the rest.</p>
+          <div class="day-footer"><span class="stay">Stay · Ubud</span><span class="cost">$225–350</span></div>
+        </article>
+        <article class="day-card">
+          <div class="day-top"><span class="day-number">Day 06 · East Bali</span><span class="day-icon" aria-hidden="true">💧</span></div>
+          <h3>Palaces by the sea</h3>
+          <p>Tour Goa Lawah, Tirta Gangga and Taman Ujung with a private driver. Add Virgin Beach for a swim and a lazy seaside lunch.</p>
+          <div class="day-footer"><span class="stay">Stay · Ubud</span><span class="cost">$325–450</span></div>
+        </article>
+        <article class="day-card">
+          <div class="day-top"><span class="day-number">Day 07 · South Bali</span><span class="day-icon" aria-hidden="true">🌊</span></div>
+          <h3>One last ride</h3>
+          <p>Choose a final surf at Kuta, Padang-Padang or Bingin, depending on your level. Toast the week with a sunset dinner.</p>
+          <div class="day-footer"><span class="stay">Stay · Airport area</span><span class="cost">$250–375</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section budget-section" id="budget">
+      <div class="shell budget-layout">
+        <div>
+          <div class="section-kicker">Spend it well</div>
+          <h2>A generous<br>daily cushion.</h2>
+          <div class="budget-callout"><span>Daily budget for two</span><strong>$500</strong></div>
+          <p class="budget-note">Our estimated days land at roughly $250–$450, leaving room for an extra spa treatment, a nicer room or that second coconut.</p>
+        </div>
+        <div class="budget-table-wrap">
+          <table>
+            <thead><tr><th>Category</th><th>What it covers</th><th>Typical spend</th></tr></thead>
+            <tbody>
+              <tr><td>Stay</td><td>Boutique hotel or pool villa</td><td>$100–180</td></tr>
+              <tr><td>Getting around</td><td>Private driver + airport transfer</td><td>$45–70</td></tr>
+              <tr><td>Eat & drink</td><td>Local lunches to sunset dinners</td><td>$50–100</td></tr>
+              <tr><td>Do & see</td><td>Surf, temples, entry fees</td><td>$35–70</td></tr>
+              <tr><td>Slow down</td><td>Couples’ massage or beach club</td><td>$35–60</td></tr>
+            </tbody>
+            <tfoot><tr><td colspan="2">Comfortable daily range</td><td>$265–480</td></tr></tfoot>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" id="tips">
+      <div class="section-head">
+        <div><div class="section-kicker">Before you go</div><h2>Travel lightly</h2></div>
+        <p class="section-intro">A few local-minded notes to keep the week easy, respectful and sunny.</p>
+      </div>
+      <div class="tips-grid">
+        <article class="tip"><span class="tip-icon">🚗</span><h3>Plan for traffic</h3><p>Short distances can take time. Use a private driver for temple days and leave a little margin.</p></article>
+        <article class="tip"><span class="tip-icon">🌊</span><h3>Match the waves</h3><p>Kuta and Seminyak suit beginners; Uluwatu, Bingin and Padang-Padang suit stronger surfers.</p></article>
+        <article class="tip"><span class="tip-icon">🙏</span><h3>Dress respectfully</h3><p>Bring a sarong or borrow one at temples, and cover shoulders and knees before entering.</p></article>
+        <article class="tip"><span class="tip-icon">✈️</span><h3>Sleep near departure</h3><p>For an early flight, swap Ubud for Jimbaran, Sanur or an airport-area hotel on the last night.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <span><strong>Bali, Slowly</strong> · a week made for two</span>
+      <span>Sunrise to sunset, no rushing required.</span>
+    </div>
+  </footer>
+</body>
+</html>
